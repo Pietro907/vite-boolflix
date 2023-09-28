@@ -11,9 +11,16 @@ export default {
     }
 
   },
+  methods: {
+    filterFilms(){
 
-
+      const movie_url = this.state.base_url + this.state.search_site;
    
+      this.state.fecthData(movie_url);
+
+      
+    }
+  }
 
 }
 
@@ -22,17 +29,17 @@ export default {
 
 <template>
 
-  <h1>{{ state.base_url }}</h1>
+  <h1>{{ state.movie }}</h1>
 
-  <input type="search" id="state.base_url" placeholder="Search the site…" >
-  <button @click="state.fecthData">Click me</button>
+  <input type="search" id="research_site" placeholder="Search the site…" v-model="state.search_site">
+  <button @click="filterFilms()">Click me</button>
   
 
-  <ul v-for="card in state.cards">
-    <li>{{ card.title }}</li>
-    <li>{{ card.original_title }}</li>
-    <li>{{ card.original_language }}</li>
-    <li>{{ Math.floor(card.vote_average)}}</li>
+  <ul v-for="film in this.state.films">
+    <li>{{ film.title }}</li>
+    <li>{{ film.original_title }}</li>
+    <li>{{ film.original_language }}</li>
+    <li>{{ Math.floor(film.vote_average)}}</li>
   </ul>
 
 </template>
