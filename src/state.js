@@ -6,12 +6,16 @@ export const state = reactive({
 
     search_site: '',
 
-    base_url: 'https://developer.themoviedb.org/3',
+    cards: null,
+
+    base_url: 'https://api.themoviedb.org/3/search/movie?api_key=c141324a0c6f42eee2d14ae8c38900a5&query=matrix',
 
     fecthData(){
         axios.get(this.base_url)
         .then(res => {
-            console.log(res.data.data);
+            console.log(res + ' Hey bro');
+            this.cards = res.data.results;
+            console.log(this.cards);
         })
     }
 

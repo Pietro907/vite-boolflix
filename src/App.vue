@@ -1,18 +1,19 @@
 <script>
-import {state} from './state.js'
+import { state } from './state.js'
 
 
 export default {
 
-  data(){
+  data() {
     return {
       state,
+
     }
 
   },
- /*  created(){
-    fetchData(res);
-  } */
+
+
+   
 
 }
 
@@ -20,27 +21,20 @@ export default {
 </script>
 
 <template>
+
   <h1>{{ state.base_url }}</h1>
+
+  <input type="search" id="state.base_url" placeholder="Search the site…" >
+  <button @click="state.fecthData">Click me</button>
   
-  <input type="search" id="state.base_url" v-model="state.search_site">
-  <button>Click me</button>
-  {{ state.testo }}
 
-  <ul>
-    <li>Titolo</li>
-    <li>Titolo Originale</li>
-    <li>Lingua</li>
-    <li>Voto</li>
+  <ul v-for="card in state.cards">
+    <li>{{ card.title }}</li>
+    <li>{{ card.original_title }}</li>
+    <li>{{ card.original_language }}</li>
+    <li>{{ Math.floor(card.vote_average)}}</li>
   </ul>
-
-
-
 
 </template>
 
-<style scoped>
-
-
-
-
-</style>
+<style scoped></style>
