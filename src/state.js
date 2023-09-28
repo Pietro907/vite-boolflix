@@ -1,9 +1,10 @@
 
 import { reactive } from 'vue';
+import axios from 'axios';
 
 export const state = reactive({
 
-    testo: 'Sono nello state',
+    search_site: '',
 
     base_url: 'https://developer.themoviedb.org/3',
 
