@@ -20,7 +20,17 @@ export default {
 
       console.log(result);
       
-    }
+    },
+    /* changeToFlag(){
+      const lang = this.state.base_url + 'original_language&query=' + this.state.search_site;
+      let resultLang = this.state.fecthData(lang);
+      console.log(resultLang);
+      if (lang == it) {
+        lang = 'IT';
+      } else {
+        console.log('fail');
+      }
+    }, */
   }
 
 }
@@ -32,7 +42,7 @@ export default {
 
   <h1>{{ state.movie }}</h1>
 
-  <input type="search" id="research_site" placeholder="Search the site…" v-model="state.search_site">
+  <input @keyup.enter="filterFilms()" type="search" id="research_site" placeholder="Search the site…" v-model="state.search_site">
   <button @click="filterFilms()">Click me</button>
   
 

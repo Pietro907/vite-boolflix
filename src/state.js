@@ -14,7 +14,7 @@ export const state = reactive({
 
     fecthData(url){
 
-        
+
         axios.get(url)
         .then(res => {
             console.log(res + ' filterFilms()');
@@ -26,6 +26,25 @@ export const state = reactive({
         .catch(error => {
             console.error(error);
         })
-    }
+    },
+    /* langToFlag(language, el) {
+        let it = this.film.original_language
+        
+        if (container.contains('open')) {
+          container.remove('open');
+          if (!el.contains('chosen')) {
+            
+            document.querySelector('.chooseLang .chosen').classList.remove('chosen');
+            el.add('chosen');
+            
+            console.log(language + ' chosen')
+            // your code
+            
+          }
+          return;
+        },
+        
+        container.add('open');
+    } */
 
 });
