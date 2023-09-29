@@ -6,10 +6,10 @@ export const state = reactive({
 
     search_site: '',
 
-    //variabile alla quale assegneremo il percorso iniziale di call al sito
-    films: '',
+    //variabile alla quale assegneremo il percorso iniziale di call al sito (meglio usare un [] invece di '')
+    films: [],
 
-
+    //Se lo scompongo in api_key: and query: mi aiuta se un giorno devo modificare
     base_url: 'https://api.themoviedb.org/3/search/movie?api_key=c141324a0c6f42eee2d14ae8c38900a5&query=',
 
     //Fa una chiamata usando una parametro al base_url e restituisce i dati contenuti nel JSON
@@ -27,7 +27,8 @@ export const state = reactive({
             console.log(this.films);
         })
         .catch(error => {                //Non lo comprendo bene -.-'
-            console.error(error);
+            //log error???
+            console.log(error);
         })
     },
 
