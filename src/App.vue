@@ -21,7 +21,10 @@ export default {
       //Alla varibile result gli assegno la funzione di filtro con il parametro da filtrare
       let result = this.state.fecthData(movie_url);
 
+      //Funziona!!!
       console.log(result);
+
+      this.state.search_site = '';
 
     },
 
