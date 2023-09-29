@@ -16,8 +16,9 @@ export default {
 
       const movie_url = this.state.base_url + this.state.search_site;
    
-      this.state.fecthData(movie_url);
+      let result = this.state.fecthData(movie_url);
 
+      console.log(result);
       
     }
   }
@@ -44,4 +45,10 @@ export default {
 
 </template>
 
-<style scoped></style>
+<style scoped>
+
+.body{
+  margin: 0;
+}
+
+</style>

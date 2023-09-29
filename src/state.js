@@ -12,8 +12,10 @@ export const state = reactive({
 
     base_url: 'https://api.themoviedb.org/3/search/movie?api_key=c141324a0c6f42eee2d14ae8c38900a5&query=',
 
-    fecthData(){
-        axios.get(this.base_url)
+    fecthData(url){
+
+        
+        axios.get(url)
         .then(res => {
             console.log(res + ' filterFilms()');
 
