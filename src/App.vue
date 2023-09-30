@@ -1,9 +1,12 @@
 <script>
 import { state } from './state.js'
+import Header from './components/Header.vue';
 
 
 export default {
-
+  components:{
+    Header,
+  },
   data() {
     return {
       state,
@@ -11,27 +14,8 @@ export default {
     }
 
   },
-  //se usavo mounted() mi avrebbe compilato da subito le info
-  methods: {
-
-    //Metodo per filtrare i film
-    filterFilms() {
-
-      const movie_url = this.state.base_url + this.state.search_site;
-
-      //Alla varibile result gli assegno la funzione di filtro con il parametro da filtrare
-      let result = this.state.fecthData(movie_url);
-
-      //Funziona!!!
-      console.log('filterFilms() ha funzionato');
-
-      //Pulisco il campo dell'input dopo enter o al click btn
-      this.state.search_site = '';
-
-    },
-
-
-  }
+  
+  
 
 }
 
@@ -40,17 +24,16 @@ export default {
 
 <template>
   <!-- Una prova per vedere lo state collegato -->
-  <h1>Chiamata DB film: <p style="font-size: 25px;">{{ state.base_url }}</p></h1>
+  <!-- <h1>Chiamata DB film: <p style="font-size: 25px;">{{ state.base_url }}</p></h1> -->
 
-  <!-- Input qui faccio la ricerca con nome per cercare un film  -->
-  <!-- Posso inviare la richiesta premendo il tasto enter -->
-  <input style="margin: 0 0 0 20rem;" @keyup.enter="filterFilms()" type="search" id="research_site" placeholder="Search the site…" v-model="state.search_site">
+  <!-- Header: logo & search input -->
+  <Header />
 
-  <!-- Btn per inviare la richiesta di filtraggio film -->
-  <button @click="filterFilms()">Click me</button>
+
+  
 
   <!-- Lista non ordinata in loop per creare una lista per film trovato -->
-  <ul style="margin: 2rem 0 0 20rem;" v-for="film in this.state.films">
+  <ul v-for="film in this.state.films">
 
     <!-- Tipo media (movie=film o tv=serietv) -->
     <li><b>Media:</b> {{ film.media_type }}</li>
@@ -93,6 +76,7 @@ export default {
 .body {
   margin: 0;
 }
+
 
 li, li > img {
   display: flex;
