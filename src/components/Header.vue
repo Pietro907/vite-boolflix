@@ -55,7 +55,7 @@ export default {
                 <div class="card search_input">
                     <!-- Input qui faccio la ricerca con nome per cercare un film  -->
                     <!-- Posso inviare la richiesta premendo il tasto enter -->
-                    <input class="search_input" @keyup.enter="filterFilms()" type="search" id="research_site"
+                    <input class="input_style" @keyup.enter="filterFilms()" type="search" id="research_site"
                         placeholder="Search title…...." v-model="state.search_site">
 
                     <!-- Btn per inviare la richiesta di filtraggio film -->
@@ -85,6 +85,9 @@ export default {
 .search_input {
   padding: 0 2rem;
   text-align: center;
+}
+.input_style{
+    width: 300px;
 }
 button{
     margin: 0 1rem;
