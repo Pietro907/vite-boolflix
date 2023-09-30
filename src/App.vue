@@ -77,7 +77,15 @@ export default {
     <li v-else="film.original_language"><b>Lingua:</b> {{ film.original_language }}</li>
 
     <!-- Votazione del film arrotondata -->
-    <li><b>Voto:</b> {{ Math.floor(film.vote_average) }} <i v-if=" Math.floor(film.vote_average) > 2 " class="fa-solid fa-star"></i></li>
+    <li class="stars"><b>Voto:</b> <!-- {{ Math.floor(film.vote_average / 2) }} -->
+      <li v-if=" Math.floor(film.vote_average / 2) == 0">&#9734 &#9734 &#9734 &#9734 &#9734</li>
+      <li v-else-if=" Math.floor(film.vote_average / 2) == 1">&#9733 &#9734 &#9734 &#9734 &#9734</li> 
+      <li v-else-if=" Math.floor(film.vote_average / 2) == 2">&#9733 &#9733 &#9734 &#9734 &#9734</li>
+      <li v-else-if=" Math.floor(film.vote_average / 2) == 3">&#9733 &#9733 &#9733 &#9734 &#9734</li>  
+      <li v-else-if=" Math.floor(film.vote_average / 2) == 4">&#9733 &#9733 &#9733 &#9733 &#9734</li> 
+      <li v-else=" Math.floor(film.vote_average / 2) == 5">&#9733 &#9733 &#9733 &#9733 &#9733</li> 
+    </li>
+
   </ul>
 </template>
 
@@ -98,6 +106,9 @@ li, li > img {
 .preview_img {
  width: 400px;
  object-fit: cover;
+}
+.stars > li {
+  padding-left: 0.3rem;
 }
 
 </style>
