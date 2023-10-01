@@ -91,7 +91,7 @@ export default {
 
 <style scoped>
 .col {
-    width: calc(100% / 12 * 4);
+    width: calc(100% / 12 * 3);
 }
 
 .card {
