@@ -1,26 +1,42 @@
 
 
 <script>
-import { state } from '../state';
+import { state } from '../state.js';
 
 export default {
     name: 'CardMain',
 
-    components: {
 
-    },
     data() {
         return {
             state,
+            lang: ['it', 'en',],
         }
-    }
+    },
+
+
+
+    /*  isLang(lang) {
+         if (this.languages.includes(lang)){
+             return true
+         }
+         return false
+ 
+     },
+ 
+     getFlagImg(lang) {
+         return new URL(`./assets/img/${lang}.png`, import.meta.url).href
+     }, */
 }
+
+
 </script>
 
 
 
 
 <template>
+    <!-- <img :src="getFlagImg" alt=""> -->
     <div class="col" v-for="film in state.films">
 
         <div class="card bg_dark">
@@ -38,7 +54,8 @@ export default {
               stampa film.title (titolo film),
               altrimenti stampa film.name (titolo serietv) 
             -->
-                    <li style="padding: 0.2rem 0.2rem; font-size: medium;"><b>Titolo: {{ film.title ? film.title : film.name }}</b></li>
+                    <li style="padding: 0.2rem 0.2rem; font-size: medium;"><b>Titolo: {{ film.title ? film.title : film.name
+                    }}</b></li>
 
                     <!-- Immagine di riferimento -->
                     <!-- <li>{{ film.poster_path }}</li>  -->
@@ -54,7 +71,7 @@ export default {
                     <li><b>Media: {{ film.media_type }}</b></li>
 
                     <!-- Language -->
-                    <li v-if="film.original_language == 'it'"><img class="lang_to_flag"
+                    <li class="lang" v-if="film.original_language == 'it'"><img class="lang_to_flag"
                             src="data:image/png;base64,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">
                     </li>
                     <li v-else-if="film.original_language == 'en'"><b>Lingua:</b> <img class="lang_to_flag"
@@ -81,7 +98,7 @@ export default {
 
                     </li>
 
-                    <li><b>Overview: </b><small>{{ film.overview }}</small></li>
+                    <li id="description"><b>Overview: </b><small>{{ film.overview }}</small></li>
 
                 </ul>
             </div>
@@ -140,16 +157,19 @@ ul {
 }
 
 li {
+    display: flex;
+    align-items: center;
     padding: 0 0.2rem;
 }
 
-li,
-li>img {
+#description {
     display: flex;
+    align-items: initial;
+
 }
 
 .lang_to_flag {
-    width: 15px;
+    width: 25px;
     margin-left: 0.3rem;
 }
 
