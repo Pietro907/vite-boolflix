@@ -46,18 +46,16 @@ export default {
                 alt="">
 
             <div class="info bg_dark_light">
+
                 <!-- Lista non ordinata in loop per creare una lista per film trovato -->
                 <ul>
-
-
 
                     <!-- Titolo -->
                     <!-- Utilizzo l'operatore ternario per dire che quando film.title è true,
               stampa film.title (titolo film),
               altrimenti stampa film.name (titolo serietv) 
             -->
-                    <li style="padding: 0.2rem 0.2rem; font-size: medium;"><b>Titolo: {{ film.title ? film.title : film.name
-                    }}</b></li>
+                    <li style="padding: 0.2rem 0.2rem; font-size: medium;"><b>Titolo: {{ film.title ? film.title : film.name}}</b></li>
 
                     <!-- Immagine di riferimento -->
                     <!-- <li>{{ film.poster_path }}</li>  -->
@@ -91,13 +89,18 @@ export default {
                     <li class="stars"><b>Voto:</b>
                         
                         <!-- {{ Math.floor(film.vote_average / 2) }} per formattarlo in un numero intero e diviso 2 per associare il valore ad una stella piena -->
-                        <li v-for="vote in Math.floor((10 / 2) - Math.floor(5 - film.vote_average / 2) )">&#9733</li>
-                        <li v-for="vote in Math.floor(5 - (film.vote_average) / 2)">&#9734</li>
-                        <!-- <li v-if="Math.floor(film.vote_average / 2) == 1">&#9733 &#9734 &#9734 &#9734 &#9734</li>
+                        
+                        
+                        
+                       <!--   <li v-for="vote in  Math.floor(5 - Math.floor(vote.vote_average / 2))">&#9733</li> -->
+                       <!-- <li v-for="vote in Math.floor((vote.vote_average / 2) )">&#9734</li> -->   <!-- ERROR?????? -->
+                        
+                        
+                        <li v-if="Math.floor(film.vote_average / 2) == 1">&#9733 &#9734 &#9734 &#9734 &#9734</li>
                         <li v-else-if="Math.floor(film.vote_average / 2) == 2">&#9733 &#9733 &#9734 &#9734 &#9734</li>
                         <li v-else-if="Math.floor(film.vote_average / 2) == 3">&#9733 &#9733 &#9733 &#9734 &#9734</li>
                         <li v-else-if="Math.floor(film.vote_average / 2) == 4">&#9733 &#9733 &#9733 &#9733 &#9734</li>
-                        <li v-else=" Math.floor(film.vote_average / 2) == 5">&#9733 &#9733 &#9733 &#9733 &#9733</li> -->
+                        <li v-else=" Math.floor(film.vote_average / 2) == 5">&#9733 &#9733 &#9733 &#9733 &#9733</li>
 
                     </li>
 
@@ -148,8 +151,6 @@ export default {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-
-
 }
 
 .card>img:hover {
