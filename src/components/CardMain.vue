@@ -10,7 +10,9 @@ export default {
     data() {
         return {
             state,
-            lang: ['it', 'en',],
+            //languages: ['it', 'en',],
+            actors: ['Nome1, Nome2'],
+            genders: ['Genere1, Genere2'],
         }
     },
 
@@ -37,7 +39,7 @@ export default {
 
 <template>
     <!-- <img :src="getFlagImg" alt=""> -->
-    <div class="col" v-for="film in state.films">
+    <div class="col" v-for="(film, index) in state.films">
 
         <div class="card bg_dark">
             <img :src="film.poster_path ? 'https://image.tmdb.org/t/p/w342/' + `${film.poster_path}` : 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Error-icon.png'"
@@ -99,7 +101,15 @@ export default {
                     </li>
 
                     <li id="description"><b>Overview: </b><small>{{ film.overview }}</small></li>
+                    <li><b>Actors:</b>
+                        <div class="actor" v-for="actor in this.actors"><h4>{{ actor }}</h4></div>
+                    </li>
 
+                    <li>
+                        <b>Genders:</b>
+                        <div class="genere" v-for="gender in this.genders"><h4>{{gender}}</h4></div>
+                    </li>
+                   
                 </ul>
             </div>
         </div>
@@ -161,7 +171,13 @@ li {
     align-items: center;
     padding: 0 0.2rem;
 }
-
+h4{
+    padding-left: 0.2rem;
+    margin: 0.2rem;
+}
+small {
+    font-size: 9px;
+}
 #description {
     display: flex;
     align-items: initial;
