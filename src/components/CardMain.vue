@@ -89,14 +89,15 @@ export default {
 
                     <!-- Votazione del film arrotondata -->
                     <li class="stars"><b>Voto:</b>
-
+                        
                         <!-- {{ Math.floor(film.vote_average / 2) }} per formattarlo in un numero intero e diviso 2 per associare il valore ad una stella piena -->
-                    <li v-if="Math.floor(film.vote_average / 2) == 0">&#9734 &#9734 &#9734 &#9734 &#9734</li>
-                    <li v-else-if="Math.floor(film.vote_average / 2) == 1">&#9733 &#9734 &#9734 &#9734 &#9734</li>
-                    <li v-else-if="Math.floor(film.vote_average / 2) == 2">&#9733 &#9733 &#9734 &#9734 &#9734</li>
-                    <li v-else-if="Math.floor(film.vote_average / 2) == 3">&#9733 &#9733 &#9733 &#9734 &#9734</li>
-                    <li v-else-if="Math.floor(film.vote_average / 2) == 4">&#9733 &#9733 &#9733 &#9733 &#9734</li>
-                    <li v-else=" Math.floor(film.vote_average / 2) == 5">&#9733 &#9733 &#9733 &#9733 &#9733</li>
+                        <li v-for="vote in Math.floor((10 / 2) - Math.floor(5 - film.vote_average / 2) )">&#9733</li>
+                        <li v-for="vote in Math.floor(5 - (film.vote_average) / 2)">&#9734</li>
+                        <!-- <li v-if="Math.floor(film.vote_average / 2) == 1">&#9733 &#9734 &#9734 &#9734 &#9734</li>
+                        <li v-else-if="Math.floor(film.vote_average / 2) == 2">&#9733 &#9733 &#9734 &#9734 &#9734</li>
+                        <li v-else-if="Math.floor(film.vote_average / 2) == 3">&#9733 &#9733 &#9733 &#9734 &#9734</li>
+                        <li v-else-if="Math.floor(film.vote_average / 2) == 4">&#9733 &#9733 &#9733 &#9733 &#9734</li>
+                        <li v-else=" Math.floor(film.vote_average / 2) == 5">&#9733 &#9733 &#9733 &#9733 &#9733</li> -->
 
                     </li>
 
