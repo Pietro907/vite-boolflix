@@ -23,23 +23,22 @@ export default {
 <template>
     <div class="col" v-for="film in state.films">
 
-        <div class="card">
+        <div class="card bg_dark">
             <img :src="film.poster_path ? 'https://image.tmdb.org/t/p/w342/' + `${film.poster_path}` : 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Error-icon.png'"
                 alt="">
 
-            <div class="info bg_gray">
+            <div class="info bg_dark_light">
                 <!-- Lista non ordinata in loop per creare una lista per film trovato -->
                 <ul>
 
-                    <!-- Tipo media (movie=film o tv=serietv) -->
-                    <li><b>Media: {{ film.media_type }}</b></li>
+
 
                     <!-- Titolo -->
                     <!-- Utilizzo l'operatore ternario per dire che quando film.title è true,
               stampa film.title (titolo film),
               altrimenti stampa film.name (titolo serietv) 
             -->
-                    <li><b>Titolo: {{ film.title ? film.title : film.name }}</b></li>
+                    <li style="padding: 0.2rem 0.2rem; font-size: medium;"><b>Titolo: {{ film.title ? film.title : film.name }}</b></li>
 
                     <!-- Immagine di riferimento -->
                     <!-- <li>{{ film.poster_path }}</li>  -->
@@ -50,6 +49,9 @@ export default {
 
                     <!-- Titolo originale -->
                     <li><b>Titolo originale: {{ film.original_title }}</b></li>
+
+                    <!-- Tipo media (movie=film o tv=serietv) -->
+                    <li><b>Media: {{ film.media_type }}</b></li>
 
                     <!-- Language -->
                     <li v-if="film.original_language == 'it'"><img class="lang_to_flag"
@@ -137,6 +139,10 @@ ul {
     padding-inline-start: 0;
 }
 
+li {
+    padding: 0 0.2rem;
+}
+
 li,
 li>img {
     display: flex;
@@ -150,13 +156,20 @@ li>img {
 .preview_img {
     width: 100%;
     object-fit: cover;
+    margin-bottom: 0.2rem
 }
 
 .stars>li {
     padding-left: 0.3rem;
+    color: yellow;
 }
 
 .bg_gray {
-    background-color: rgb(199, 198, 198);
+    background-color: rgb(117, 117, 117);
 
-}</style>
+}
+
+.bg_dark_light {
+    background-color: rgb(190, 187, 187);
+}
+</style>

@@ -18,7 +18,7 @@ export default {
 
 
 <template>
-    <div class="container bg_dark_light">
+    <div class="container bg_dark_light_c">
         <div class="row flex_wrap bg_dark">
 
 
@@ -55,8 +55,8 @@ export default {
     gap: 1rem;
 }
 
-.bg_dark_light {
-    background-color: rgba(0, 0, 0, 0.851);
+.bg_dark_light_c {
+    background-color: rgb(48, 47, 47);
 }
 
 .bg_dark {
